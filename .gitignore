@@ -1,4 +1,5 @@
 .env
 .prettierrc
+sftp.json
 /node_modules/
 /data/

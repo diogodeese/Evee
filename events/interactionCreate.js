@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 module.exports = {
   name: "interactionCreate",
   once: false,
@@ -15,7 +13,7 @@ module.exports = {
       console.error(err);
       await interaction.reply({
         content: "An error occurred while executing that command.",
-        emphemeral: true,
+        ephemeral: true,
       });
     }
   },

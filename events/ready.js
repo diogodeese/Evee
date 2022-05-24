@@ -40,7 +40,7 @@ module.exports = {
           await rest.put(Routes.applicationCommands(CLIENT_ID), {
             body: commands,
           });
-          console.log("Commands Registered Globaly");
+          console.log("Commands Registered Globally");
         } else {
           await rest.put(
             Routes.applicationGuildCommands(CLIENT_ID, process.env.GUILD_ID),
