@@ -8,7 +8,8 @@ module.exports = {
    *
    * @param {Message} message
    */
-  execute(message) {
+  async execute(message) {
+    if (message.guild.id !== "889710001973756004") return;
     if (message.author.bot) return;
     if (
       !client.channels.cache.find(

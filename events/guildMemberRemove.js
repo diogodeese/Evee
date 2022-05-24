@@ -3,6 +3,8 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "guildMemberRemove",
   async execute(interaction) {
+    if (interaction.guild.id !== "889710001973756004") return;
+
     const embed = new MessageEmbed()
       .setColor("#ff6666")
       .setTitle("Goodbye!")

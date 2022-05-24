@@ -9,7 +9,8 @@ module.exports = {
    * @param {Message} oldMessage
    * @param {Message} newMessage
    */
-  execute(oldMessage, newMessage) {
+  async execute(oldMessage, newMessage) {
+    if (oldMessage.guild.id !== "889710001973756004") return;
     if (oldMessage.author.bot) return;
     if (oldMessage.content === newMessage.content) return;
     if (
@@ -19,15 +20,14 @@ module.exports = {
     )
       return;
 
-    const serverId = newMessage.guild.id;
-    const max = 1950;
+    const EMBED_MAX_LENGTH = 1950;
 
     const original =
-      oldMessage.content.slice(0, max) +
-      (oldMessage.content.length > max ? " ..." : "");
+      oldMessage.content.slice(0, EMBED_MAX_LENGTH) +
+      (oldMessage.content.length > EMBED_MAX_LENGTH ? " ..." : "");
     const edited =
-      newMessage.content.slice(0, max) +
-      (newMessage.content.length > max ? " ..." : "");
+      newMessage.content.slice(0, EMBED_MAX_LENGTH) +
+      (newMessage.content.length > EMBED_MAX_LENGTH ? " ..." : "");
 
     const embedDescription =
       "This [message](" +

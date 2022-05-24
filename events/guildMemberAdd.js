@@ -3,6 +3,8 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "guildMemberAdd",
   async execute(interaction) {
+    if (interaction.guild.id !== "889710001973756004") return;
+
     const greets = ["has joined the server!"];
     const random = Math.floor(Math.random() * greets.length);
 
