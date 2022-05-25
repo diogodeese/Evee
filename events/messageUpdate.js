@@ -1,5 +1,5 @@
 const { MessageEmbed, Message } = require("discord.js");
-const client = require("../main");
+const GuildSettings = require("../models/guildSettingsSchema");
 
 module.exports = {
   name: "messageUpdate",
@@ -10,15 +10,14 @@ module.exports = {
    * @param {Message} newMessage
    */
   async execute(oldMessage, newMessage) {
-    if (oldMessage.guild.id !== "889710001973756004") return;
     if (oldMessage.author.bot) return;
     if (oldMessage.content === newMessage.content) return;
-    if (
-      !client.channels.cache.find(
-        (channelName) => channelName.name === "evee-logs"
-      )
-    )
-      return;
+
+    const settings = await GuildSettings.findOne({
+      guild_id: oldMessage.guild.id,
+    });
+
+    if (!GuildSettings && !GuildSettings.logs_channel_id) return;
 
     const EMBED_MAX_LENGTH = 1950;
 
@@ -53,8 +52,8 @@ module.exports = {
         newMessage.author.displayAvatarURL()
       );
 
-    client.channels.cache
-      .find((channelName) => channelName.name === "evee-logs")
+    oldMessage.guild.channels.cache
+      .get(settings.logs_channel_id)
       .send({ embeds: [embed] });
   },
 };

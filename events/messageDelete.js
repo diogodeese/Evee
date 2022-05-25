@@ -1,5 +1,5 @@
 const { MessageEmbed, Message } = require("discord.js");
-const client = require("../main");
+const GuildSettings = require("../models/guildSettingsSchema");
 
 module.exports = {
   name: "messageDelete",
@@ -9,14 +9,13 @@ module.exports = {
    * @param {Message} message
    */
   async execute(message) {
-    if (message.guild.id !== "889710001973756004") return;
     if (message.author.bot) return;
-    if (
-      !client.channels.cache.find(
-        (channelName) => channelName.name === "evee-logs"
-      )
-    )
-      return;
+
+    const settings = await GuildSettings.findOne({
+      guild_id: message.guild.id,
+    });
+
+    if (!GuildSettings && !GuildSettings.logs_channel_id) return;
 
     const embedDescription =
       `A message sent by ${message.author} was deleted.` +
@@ -46,8 +45,8 @@ module.exports = {
       );
     }
 
-    client.channels.cache
-      .find((channelName) => channelName.name === "evee-logs")
+    message.guild.channels.cache
+      .get(settings.logs_channel_id)
       .send({ embeds: [embed] });
   },
 };

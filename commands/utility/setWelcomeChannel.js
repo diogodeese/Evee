@@ -4,7 +4,7 @@ const GuildSettings = require("../../models/guildSettingsSchema");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("setwelcomechannel")
+    .setName("set-welcome-channel")
     .setDescription("Clear previous messages!")
     .addChannelOption((option) =>
       option
@@ -53,7 +53,7 @@ module.exports = {
           }
 
           interaction.reply(
-            `Welcome channel has been set ${interaction.options.getChannel(
+            `Welcome channel has been set to ${interaction.options.getChannel(
               "welcome"
             )}!`
           );

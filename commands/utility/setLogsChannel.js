@@ -4,12 +4,14 @@ const GuildSettings = require("../../models/guildSettingsSchema");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("set-goodbye-channel")
-    .setDescription("Clear previous messages!")
+    .setName("set-logs-channel")
+    .setDescription("Will create a new channel for logs!")
     .addChannelOption((option) =>
       option
-        .setName("goodbye")
-        .setDescription("Channel where your goodbye messages will be logged.")
+        .setName("logs")
+        .setDescription(
+          "Channel where your edit and delete messages will be logged."
+        )
         .setRequired(true)
     ),
   async execute(interaction) {
@@ -36,11 +38,10 @@ module.exports = {
         if (!settings) {
           settings = new GuildSettings({
             guild_id: interaction.guild.id,
-            goodbye_channel_id: interaction.options.getChannel("goodbye").id,
+            logs_channel_id: interaction.options.getChannel("logs").id,
           });
         } else {
-          settings.goodbye_channel_id =
-            interaction.options.getChannel("goodbye").id;
+          settings.logs_channel_id = interaction.options.getChannel("logs").id;
         }
 
         settings.save((err) => {
@@ -53,8 +54,8 @@ module.exports = {
           }
 
           interaction.reply(
-            `Goodbye channel has been set to ${interaction.options.getChannel(
-              "goodbye"
+            `Logs channel has been set to ${interaction.options.getChannel(
+              "logs"
             )}!`
           );
         });
