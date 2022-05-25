@@ -10,6 +10,11 @@ module.exports = {
 
     if (!GuildSettings && !GuildSettings.welcome_channel_id) return;
 
+    if (settings.default_role_id) {
+      const member = interaction.guild.members.cache.get(interaction.user.id);
+      member.roles.add(settings.default_role_id);
+    }
+
     const greets = ["has joined the server!"];
     const random = Math.floor(Math.random() * greets.length);
 

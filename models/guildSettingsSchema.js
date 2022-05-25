@@ -5,6 +5,7 @@ const GuildSettings = new mongoose.Schema({
   welcome_channel_id: String,
   goodbye_channel_id: String,
   logs_channel_id: String,
+  default_role_id: String,
 });
 
 module.exports = mongoose.model("GuildSettings", GuildSettings);

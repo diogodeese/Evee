@@ -21,10 +21,10 @@ module.exports = {
 
     const EMBED_MAX_LENGTH = 1950;
 
-    const original =
+    const originalMessage =
       oldMessage.content.slice(0, EMBED_MAX_LENGTH) +
       (oldMessage.content.length > EMBED_MAX_LENGTH ? " ..." : "");
-    const edited =
+    const editedMessage =
       newMessage.content.slice(0, EMBED_MAX_LENGTH) +
       (newMessage.content.length > EMBED_MAX_LENGTH ? " ..." : "");
 
@@ -33,9 +33,9 @@ module.exports = {
       newMessage.url +
       `) was edited by ${newMessage.author} in ${newMessage.channel}.` +
       "\n\n **Original**: \n ``` " +
-      original +
+      originalMessage +
       " ``` \n **Edited**: \n ``` " +
-      edited +
+      editedMessage +
       "```";
 
     const embed = new MessageEmbed()
