@@ -1,9 +1,14 @@
 const { MessageEmbed } = require("discord.js");
+const GuildSettings = require("../models/guildSettingsSchema");
 
 module.exports = {
   name: "guildMemberAdd",
   async execute(interaction) {
-    if (interaction.guild.id !== "889710001973756004") return;
+    const settings = await GuildSettings.findOne({
+      guild_id: interaction.guild.id,
+    });
+
+    if (!GuildSettings && !GuildSettings.welcome_channel_id) return;
 
     const greets = ["has joined the server!"];
     const random = Math.floor(Math.random() * greets.length);
@@ -21,7 +26,7 @@ module.exports = {
       .setTimestamp();
 
     interaction.guild.channels.cache
-      .get("890230553922633799")
+      .get(settings.welcome_channel_id)
       .send({ embeds: [embed] });
   },
 };

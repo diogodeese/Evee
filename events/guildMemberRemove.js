@@ -1,9 +1,14 @@
 const { MessageEmbed } = require("discord.js");
+const GuildSettings = require("../models/guildSettingsSchema");
 
 module.exports = {
   name: "guildMemberRemove",
   async execute(interaction) {
-    if (interaction.guild.id !== "889710001973756004") return;
+    const settings = await GuildSettings.findOne({
+      guild_id: interaction.guild.id,
+    });
+
+    if (!GuildSettings && !GuildSettings.goodbye_channel_id) return;
 
     const embed = new MessageEmbed()
       .setColor("#ff6666")
@@ -14,7 +19,7 @@ module.exports = {
       .setTimestamp();
 
     interaction.guild.channels.cache
-      .get("978453505838817291")
+      .get(settings.goodbye_channel_id)
       .send({ embeds: [embed] });
   },
 };

@@ -1,15 +1,18 @@
 require("dotenv").config();
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v8");
+const mongoose = require("mongoose");
 
 module.exports = {
   name: "ready",
   once: true,
-  execute(client, commands) {
+  async execute(client, commands) {
     console.log("Evee is online");
 
     client.use;
+    const CLIENT_ID = client.user.id;
 
+    // Bot Description
     const serverCount = client.guilds.cache.size;
     const userCount = client.guilds.cache.reduce(
       (a, b) => a + b.memberCount,
@@ -27,8 +30,6 @@ module.exports = {
         activities: [{ name: `${status}`, type: "WATCHING" }],
       });
     }, 15000);
-
-    const CLIENT_ID = client.user.id;
 
     const rest = new REST({
       version: "9",
@@ -56,5 +57,17 @@ module.exports = {
         }
       }
     })();
+
+    // MongoDB Connection
+    await mongoose
+      .connect(process.env.MONGO_URI || "", {
+        keepAlive: true,
+      })
+      .then(() => {
+        console.log("Connected to MongoDB");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   },
 };
