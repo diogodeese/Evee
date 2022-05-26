@@ -10,7 +10,6 @@ module.exports = {
    */
   async execute(message) {
     if (message.author.bot) return;
-
     const settings = await GuildSettings.findOne({
       guild_id: message.guild.id,
     });

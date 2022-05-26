@@ -3,11 +3,23 @@ const ReactionRoles = require("../models/reactionRolesSchema");
 module.exports = {
   name: "messageReactionAdd",
   async execute(reaction, user) {
-    const settings = await ReactionRoles.findOne({
+    let settings;
+
+    // Query with emoji ID
+    settings = await ReactionRoles.findOne({
       guild_id: reaction.message.guild.id,
       message_id: reaction.message.id,
-      emoji: reaction.emoji.name,
+      emoji_id: reaction.emoji.id,
     });
+
+    // Query with emoji name
+    if (!reaction.emoji.id) {
+      settings = await ReactionRoles.findOne({
+        guild_id: reaction.message.guild.id,
+        message_id: reaction.message.id,
+        emoji: reaction.emoji.name,
+      });
+    }
 
     if (!settings) return;
 

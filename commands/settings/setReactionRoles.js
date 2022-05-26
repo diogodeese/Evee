@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { Permissions } = require("discord.js");
+const { Permissions, Guild } = require("discord.js");
 const ReactionRoles = require("../../models/reactionRolesSchema");
 
 module.exports = {
@@ -40,62 +40,64 @@ module.exports = {
       });
     }
 
-    /*// Removing all reactions
-    const channel = interaction.options.getChannel("channel");
+    // Removing all reactions
+    /*const channel = interaction.options.getChannel("channel");
     const message = await channel.messages.fetch(
       interaction.options.getString("message-id")
     );
     message.reactions.removeAll();*/
 
-    ReactionRoles.findOne(
-      { guild_id: interaction.guild.id },
-      (err, settings) => {
-        if (err) {
-          console.error(err);
-          return interaction.reply({
-            content: "An error occurred while executing that command.",
-            ephemeral: true,
-          });
-        }
+    // Getting the emoji ID
+    const regex = interaction.options
+      .getString("emoji")
+      .replace(/^<a?:\w+:(\d+)>$/, "$1");
 
-        if (!settings) {
-          settings = new ReactionRoles({
-            guild_id: interaction.guild.id,
-            channel_id: interaction.options.getChannel("channel").id,
-            message_id: interaction.options.getString("message-id"),
-            role_id: interaction.options.getRole("role").id,
-            emoji: interaction.options.getString("emoji"),
-          });
-        } else {
-          settings.channel_id = interaction.options.getChannel("channel").id;
-          settings.message_id = interaction.options.getString("message-id");
-          settings.role_id = interaction.options.getRole("role").id;
-          settings.emoji = interaction.options.getString("emoji");
-        }
+    const emoji = interaction.guild.emojis.cache.find(
+      (emj) =>
+        emj.id === regex || emj.name === interaction.options.getString("emoji")
+    );
 
-        settings.save(async (err) => {
-          if (err) {
-            console.error(err);
-            return interaction.reply({
-              content: "An error occurred while executing that command.",
-              ephemeral: true,
-            });
-          }
+    let settings;
 
-          // Creating a reaction role
-          const channel = interaction.options.getChannel("channel");
-          const message = await channel.messages.fetch(
-            interaction.options.getString("message-id")
-          );
-          message.react(interaction.options.getString("emoji"));
+    if (emoji) {
+      settings = new ReactionRoles({
+        guild_id: interaction.guild.id,
+        channel_id: interaction.options.getChannel("channel").id,
+        message_id: interaction.options.getString("message-id"),
+        role_id: interaction.options.getRole("role").id,
+        emoji_id: emoji.id,
+      });
+    } else {
+      settings = new ReactionRoles({
+        guild_id: interaction.guild.id,
+        channel_id: interaction.options.getChannel("channel").id,
+        message_id: interaction.options.getString("message-id"),
+        role_id: interaction.options.getRole("role").id,
+        emoji: interaction.options.getString("emoji"),
+      });
+    }
 
-          interaction.reply(
-            `Users that react with ${interaction.options.getString(
-              "emoji"
-            )} will get the role ${interaction.options.getRole("role")}!`
-          );
+    settings.save(async (err) => {
+      if (err) {
+        console.error(err);
+        return interaction.reply({
+          content: "An error occurred while executing that command.",
+          ephemeral: true,
         });
       }
-    );
+
+      // Creating a reaction role
+      const channel = interaction.options.getChannel("channel");
+      const message = await channel.messages.fetch(
+        interaction.options.getString("message-id")
+      );
+      message.react(interaction.options.getString("emoji"));
+
+      interaction.reply(
+        `Users that react with ${interaction.options.getString(
+          "emoji"
+        )} will get the role ${interaction.options.getRole("role")}!`
+      );
+    });
   },
 };
