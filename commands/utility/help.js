@@ -16,15 +16,33 @@ module.exports = {
 
     const commandFolders = fs.readdirSync("./commands");
 
-    var category = "";
-    var commands = [];
+    let category = "";
+    let commands = [];
 
     for (const folder of commandFolders) {
       const commandFiles = fs
         .readdirSync(`./commands/${folder}`)
         .filter((file) => file.endsWith(".js"));
 
-      category = folder;
+      category = folder.charAt(0).toUpperCase() + folder.slice(1);
+
+      switch (category) {
+        case "Fun":
+          category = "🎉  " + category;
+          break;
+
+        case "Music":
+          category = "🎵  " + category;
+          break;
+
+        case "Settings":
+          category = "⚙️  " + category;
+          break;
+
+        case "Utility":
+          category = "🔧  " + category;
+          break;
+      }
 
       for (const file of commandFiles) {
         commands.push(file.slice(0, -3));
