@@ -30,7 +30,8 @@
     "fs": "^0.0.1-security",
     "images-scraper": "^6.3.0",
     "mongoose": "^6.3.4",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "ytdl-core": "^4.11.0"
   },
   "engines": {
     "npm": ">=6.0.0",
