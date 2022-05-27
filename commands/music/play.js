@@ -14,16 +14,16 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction) {
-    const songTitle = interaction.options.getString("songtitle");
+    const title = interaction.options.getString("title");
 
     interaction.reply(
-      "Searching for: " + interaction.options.getString("songtitle")
+      "Searching for: " + interaction.options.getString("title")
     );
 
     if (!interaction.member.voice.channel)
       return interaction.followUp("Please join a voice channel first!");
 
-    const searchResult = await player.search(songTitle, {
+    const searchResult = await player.search(title, {
       requestedBy: interaction.user,
       searchEngine: QueryType.AUTO,
     });
