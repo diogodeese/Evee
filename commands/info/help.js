@@ -28,23 +28,23 @@ module.exports = {
 
       switch (category) {
         case "Fun":
-          category = "🎉  " + category;
+          category = ":tada: " + category;
           break;
 
         case "Info":
-          category = "ℹ️  " + category;
+          category = ":information_source: " + category;
           break;
 
         case "Music":
-          category = "🎵  " + category;
+          category = ":musical_note: " + category;
           break;
 
         case "Settings":
-          category = "⚙️  " + category;
+          category = ":gear: " + category;
           break;
 
         case "Utility":
-          category = "🔧  " + category;
+          category = ":wrench: " + category;
           break;
       }
 
