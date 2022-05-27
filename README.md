@@ -21,11 +21,11 @@
     Evee is an awesome discord bot made to cover all the needs in discord community such as fun, music and management!
     <br />
     <br />
-    <a href="https://github.com/kalinzange/EveDiscordBot/issues">Report Bug</a>
+    <a href="https://github.com/diogodeese/Evee/issues">Report Bug</a>
     ·
-    <a href="https://discord.com/api/oauth2/authorize?client_id=775530325572976640&permissions=8&scope=applications.commands%20bot">Invite Evee To Your Server</a>
+    <a href="https://discord.com/api/oauth2/authorize?client_id=775530325572976640&permissions=8&scope=bot">Invite Evee To Your Server</a>
     ·
-    <a href="https://github.com/kalinzange/EveDiscordBot/issues">Request Feature</a>
+    <a href="https://github.com/diogodeese/Evee/issues">Request Feature</a>
   </p>
 </div>
 
@@ -67,8 +67,9 @@ Of course, no bot will be a good fit in every server since your needs may be dif
 <!-- BUILT WITH -->
 ### Built With
 
-* [Node](https://nodejs.org/en/)
-* [Discord JS](https://discord.js.org/#/)
+* [Node](https://nodejs.org/)
+* [MongoDB](https://www.mongodb.com/)
+* [Discord JS](https://discord.js.org/)
 
 
 <!-- GETTING STARTED -->
@@ -118,13 +119,13 @@ Distributed under the GNU GPLv3 License. See `LICENSE.txt` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/kalinzange/EveDiscordBot.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/kalinzange/EveDiscordBot.svg?style=for-the-badge
-[forks-url]: https://github.com/kalinzange/EveDiscordBot/network/members
-[stars-shield]: https://img.shields.io/github/stars/kalinzange/EveDiscordBot.svg?style=for-the-badge
-[stars-url]: https://github.com/kalinzange/EveDiscordBot/stargazers
-[issues-shield]: https://img.shields.io/github/issues/kalinzange/EveDiscordBot.svg?style=for-the-badge
-[issues-url]: https://github.com/kalinzange/EveDiscordBot/issues
-[license-shield]: https://img.shields.io/github/license/kalinzange/EveDiscordBot.svg?style=for-the-badge
-[license-url]: https://github.com/kalinzange/EveDiscordBot/blob/main/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/diogodeese/Evee.svg?style=for-the-badge
+[contributors-url]: https://github.com/diogodeese/Evee/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/diogodeese/Evee.svg?style=for-the-badge
+[forks-url]: https://github.com/diogodeese/Evee/network/members
+[stars-shield]: https://img.shields.io/github/stars/diogodeese/Evee.svg?style=for-the-badge
+[stars-url]: https://github.com/diogodeese/Evee/stargazers
+[issues-shield]: https://img.shields.io/github/issues/diogodeese/Evee.svg?style=for-the-badge
+[issues-url]: https://github.com/diogodeese/Evee/issues
+[license-shield]: https://img.shields.io/github/license/diogodeese/Evee.svg?style=for-the-badge
+[license-url]: https://github.com/diogodeese/Evee/blob/main/LICENSE
