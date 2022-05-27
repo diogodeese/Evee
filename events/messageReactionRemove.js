@@ -4,6 +4,8 @@ module.exports = {
   name: "messageReactionRemove",
   once: false,
   async execute(reaction, user) {
+    if (user.bot) return;
+
     let settings;
 
     // Query with emoji ID
