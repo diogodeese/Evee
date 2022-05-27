@@ -35,6 +35,10 @@ module.exports = {
           category = ":information_source: " + category;
           break;
 
+        case "Mod":
+          category = ":shield: " + category;
+          break;
+
         case "Music":
           category = ":musical_note: " + category;
           break;
