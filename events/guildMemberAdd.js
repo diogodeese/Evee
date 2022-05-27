@@ -3,6 +3,7 @@ const GuildSettings = require("../models/guildSettingsSchema");
 
 module.exports = {
   name: "guildMemberAdd",
+  once: false,
   async execute(interaction) {
     const settings = await GuildSettings.findOne({
       guild_id: interaction.guild.id,

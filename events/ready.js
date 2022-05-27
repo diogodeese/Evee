@@ -12,24 +12,9 @@ module.exports = {
     client.use;
     const CLIENT_ID = client.user.id;
 
-    // Bot Description
-    const serverCount = client.guilds.cache.size;
-    const userCount = client.guilds.cache.reduce(
-      (a, b) => a + b.memberCount,
-      0
-    );
-
-    const activities = [
-      serverCount + " servers! |  /help",
-      userCount + " users! |  /help",
-    ];
-
-    setInterval(() => {
-      const status = activities[Math.floor(Math.random() * activities.length)];
-      client.user.setPresence({
-        activities: [{ name: `${status}`, type: "WATCHING" }],
-      });
-    }, 15000);
+    client.user.setPresence({
+      activities: [{ name: "/help", type: "LISTENING" }],
+    });
 
     const rest = new REST({
       version: "9",

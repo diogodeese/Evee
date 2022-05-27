@@ -5,11 +5,11 @@ const GuildSettings = require("../../models/guildSettingsSchema");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("set-default-role")
-    .setDescription("Will apply this role to all new members!")
+    .setDescription("Will apply this role to all new members")
     .addRoleOption((option) =>
       option
         .setName("role")
-        .setDescription("Role that will be applied to all new members.")
+        .setDescription("Role that will be applied to all new members")
         .setRequired(true)
     ),
   async execute(interaction) {

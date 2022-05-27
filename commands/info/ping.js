@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("Replies with pong!"),
+    .setDescription("Replies with pong"),
   async execute(interaction) {
     await interaction.reply("Pinging...");
     const latency = Date.now() - interaction.createdTimestamp;

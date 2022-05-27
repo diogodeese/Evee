@@ -5,11 +5,11 @@ const ReactionRoles = require("../../models/reactionRolesSchema");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("set-reaction-roles")
-    .setDescription("Will add a reaction role to the message!")
+    .setDescription("Will add a reaction role to the message")
     .addChannelOption((option) =>
       option
         .setName("channel")
-        .setDescription("Channel where your reaction role message is located.")
+        .setDescription("Channel where your reaction role message is located")
         .setRequired(true)
     )
     .addStringOption((option) =>

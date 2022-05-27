@@ -5,7 +5,7 @@ const fs = require("fs");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("help")
-    .setDescription("Shows all the commands available!"),
+    .setDescription("Shows all the commands available"),
   async execute(interaction) {
     const embed = new MessageEmbed()
       .setColor("#0099ff")

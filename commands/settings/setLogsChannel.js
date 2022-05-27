@@ -5,12 +5,12 @@ const GuildSettings = require("../../models/guildSettingsSchema");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("set-logs-channel")
-    .setDescription("Will create a new channel for logs!")
+    .setDescription("Will create a new channel for logs")
     .addChannelOption((option) =>
       option
         .setName("logs")
         .setDescription(
-          "Channel where your edit and delete messages will be logged."
+          "Channel where your edit and delete messages will be logged"
         )
         .setRequired(true)
     ),

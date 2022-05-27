@@ -5,11 +5,11 @@ const GuildSettings = require("../../models/guildSettingsSchema");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("set-goodbye-channel")
-    .setDescription("Clear previous messages!")
+    .setDescription("Clear previous messages")
     .addChannelOption((option) =>
       option
         .setName("goodbye")
-        .setDescription("Channel where your goodbye messages will be logged.")
+        .setDescription("Channel where your goodbye messages will be logged")
         .setRequired(true)
     ),
   async execute(interaction) {

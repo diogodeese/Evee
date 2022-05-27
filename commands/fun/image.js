@@ -11,11 +11,11 @@ const google = new Scraper({
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("image")
-    .setDescription("Searches for an image!")
+    .setDescription("Searches for an image")
     .addStringOption((option) =>
       option
         .setName("search")
-        .setDescription("Search something.")
+        .setDescription("Search something")
         .setRequired(true)
     ),
   async execute(interaction) {

@@ -4,11 +4,11 @@ const player = require("../../client/player");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("volume")
-    .setDescription("Change or check the volume of the current song!")
+    .setDescription("Change or check the volume of the current song")
     .addIntegerOption((option) =>
       option
         .setName("percentage")
-        .setDescription("Percentage to change the volume to!")
+        .setDescription("Percentage to change the volume to")
         .setRequired(false)
     ),
   async execute(interaction) {

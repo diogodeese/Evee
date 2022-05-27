@@ -6,11 +6,11 @@ const player = require("../../client/player");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("play")
-    .setDescription("Plays a requested song!")
+    .setDescription("Plays a requested song")
     .addStringOption((option) =>
       option
-        .setName("songtitle")
-        .setDescription("Title of the song!")
+        .setName("title")
+        .setDescription("Title of the song")
         .setRequired(true)
     ),
   async execute(interaction) {

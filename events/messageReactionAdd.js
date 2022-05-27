@@ -2,6 +2,7 @@ const ReactionRoles = require("../models/reactionRolesSchema");
 
 module.exports = {
   name: "messageReactionAdd",
+  once: false,
   async execute(reaction, user) {
     let settings;
 

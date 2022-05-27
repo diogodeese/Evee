@@ -50,11 +50,11 @@ const createResponse = async (title) => {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("lyrics")
-    .setDescription("Display lyrics for the current song or a specific song!")
+    .setDescription("Display lyrics for the current song or a specific song")
     .addStringOption((option) =>
       option
         .setName("title")
-        .setDescription("Title of the music.")
+        .setDescription("Title of the music")
         .setRequired(false)
     ),
 
