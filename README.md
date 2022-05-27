@@ -120,7 +120,7 @@ Distributed under the GNU GPLv3 License. See `LICENSE.txt` for more information.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/diogodeese/Evee.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://github.com/diogodeese/Evee/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/diogodeese/Evee.svg?style=for-the-badge
 [forks-url]: https://github.com/diogodeese/Evee/network/members
 [stars-shield]: https://img.shields.io/github/stars/diogodeese/Evee.svg?style=for-the-badge
