@@ -31,6 +31,10 @@ module.exports = {
           category = "🎉  " + category;
           break;
 
+        case "Info":
+          category = "ℹ️  " + category;
+          break;
+
         case "Music":
           category = "🎵  " + category;
           break;
