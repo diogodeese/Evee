@@ -10,9 +10,16 @@ module.exports = {
         .setName("user")
         .setDescription("The user to kick")
         .setRequired(true)
+    )
+    .addStringOption((option) =>
+      option
+        .setName("reason")
+        .setDescription("Reason for kicking")
+        .setRequired(false)
     ),
   async execute(interaction) {
     const user = interaction.options.getUser("user");
+    const reason = interaction.options.getString("reason");
     const member = interaction.member;
     const guild = interaction.guild;
 
@@ -36,14 +43,13 @@ module.exports = {
       return;
     }
 
-    if (!user.kickable) {
-      interaction.reply("I can't kick this user.");
-      return;
-    }
-
     try {
-      interaction.options.getMember("user").kick();
-      interaction.reply(`Kicked ${user.tag}`);
+      interaction.options.getMember("user").kick(reason);
+      if (!reason) {
+        interaction.reply(`Kicked ${user.tag}!`);
+      } else {
+        interaction.reply(`Kicked ${user.tag}! \nReason: ${reason}`);
+      }
     } catch (err) {
       interaction.reply(`Something went wrong when kicking ${user.tag}`);
       console.error(err);

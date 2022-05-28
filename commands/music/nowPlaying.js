@@ -4,7 +4,7 @@ const player = require("../../client/player");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("now-laying")
+    .setName("now-playing")
     .setDescription("Shows information about the song being played"),
   async execute(interaction) {
     const queue = player.getQueue(interaction.guildId);

@@ -72,8 +72,11 @@ module.exports = {
     if (title) return sendLyrics(title);
 
     const queue = player.getQueue(interaction.guildId);
-    if (!queue?.playing)
-      return interaction.reply("There's no music being played.");
+    if (!queue?.playing) {
+      return interaction.reply(
+        "There's no music being played and you did not provide a music title."
+      );
+    }
 
     return sendLyrics(queue.current.title);
   },

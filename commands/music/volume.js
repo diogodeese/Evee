@@ -8,7 +8,7 @@ module.exports = {
     .addIntegerOption((option) =>
       option
         .setName("percentage")
-        .setDescription("Percentage to change the volume to")
+        .setDescription("Percentage of the volume")
         .setRequired(false)
     ),
   async execute(interaction) {
