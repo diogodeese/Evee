@@ -61,13 +61,12 @@ Why should you add Evee to your Discord server? Here's why:
 * With Evee you can request a feature that you find really cool and we will implement it
 * Why have a lot of bots with different commands and prefix when you can have just one that does everything
 
-Of course, no bot will be a good fit in every server since your needs may be different. So we'll be adding more useful features in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this bot!
 
 
 <!-- BUILT WITH -->
 ### Built With
 
-* [Node](https://nodejs.org/)
+* [Node.js](https://nodejs.org/)
 * [MongoDB](https://www.mongodb.com/)
 * [Discord JS](https://discord.js.org/)
 
@@ -81,7 +80,8 @@ In case you want to run this code in your computer make sure you follow this gui
 <!-- PREREQUISITES -->
 ### Prerequisites
 
-Install Node JS version 16.6 or higher, and Discord JS version 13. After installing Node you can install Discord v13 by running the appropriate command in your terminal or command prompt.
+Install 
+JS version 16.6 or higher, and Discord JS version 13. After installing Node.js you can install Discord v13 by running the appropriate command in your terminal or command prompt.
 
 Discord JS
 
