@@ -3,9 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="">
-    <img src="assets/evee.png" alt="Logo" width="80" height="80">
-  </a>
+  <img src="assets/evee.png" alt="Logo" width="80" height="80">
 
   <h3 align="center">Evee Discord Bot</h3>
   
