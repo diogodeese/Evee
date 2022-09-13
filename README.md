@@ -71,14 +71,14 @@ Why should you add Evee to your Discord server? Here's why:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-In case you want to run this code in your computer make sure you follow this guide in the right order and everything should work just fine.
+In case you want to run this code on your computer make sure you follow this guide in the right order and everything should work just fine.
 
 
 <!-- PREREQUISITES -->
 ### Prerequisites
 
 Install 
-JS version 16.6 or higher, and Discord JS version 13. After installing Node.js you can install Discord v13 by running the appropriate command in your terminal or command prompt.
+Make sure to install Node.js version 16.6 or higher, and Discord JS version 13. After installing Node.js you can install Discord v13 by running the appropriate command in your terminal or command prompt.
 
 Discord JS
 
