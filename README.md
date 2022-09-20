@@ -20,7 +20,7 @@
     <br />
     <a href="https://github.com/diogodeese/Evee/issues">Report Bug</a>
     ·
-    <a href="https://discord.com/api/oauth2/authorize?client_id=775530325572976640&permissions=8&scope=bot">Invite Evee To Your Server</a>
+    <a href="https://discord.com/api/oauth2/authorize?client_id=775530325572976640&permissions=8&scope=bot">Invite Evee to your Server</a>
     ·
     <a href="https://github.com/diogodeese/Evee/issues">Request Feature</a>
   </p>
