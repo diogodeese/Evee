@@ -63,7 +63,7 @@ module.exports = {
     const sendLyrics = async (songTitle) => {
       try {
         const res = await createResponse(songTitle);
-        interaction.reply({ embeds: res });
+        interaction.reply({ embeds: [res] });
       } catch (err) {
         return console.error({ err });
       }
