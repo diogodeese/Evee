@@ -16,10 +16,15 @@ module.exports = {
         content: "Your number needs to be greater or equal to 1!",
         ephemeral: true,
       });
+    } else if(interaction.options.getInteger("integer") > 100) {
+      interaction.reply({
+        content: "Your number needs to be lesser or equal to 100!",
+        ephemeral: true,
+      });
     } else {
       interaction.channel.bulkDelete(interaction.options.getInteger("integer"));
 
-      var msg = "";
+      let msg = "";
 
       if (interaction.options.getInteger("integer") === 1) {
         msg = " message!";
