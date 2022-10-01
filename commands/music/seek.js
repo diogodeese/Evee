@@ -15,7 +15,7 @@ module.exports = {
     if (!queue?.playing)
       return interaction.reply("There's no music being played");
 
-    let song = ytdl(queue.current.source, { quality: "highestaudio" });
+    let song = ytdl(queue.current.url, { quality: "highestaudio" });
 
     let editedSong = fluentFfmpeg({ source: song })
       .toFormat("mp3")
