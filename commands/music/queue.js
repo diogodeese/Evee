@@ -21,15 +21,9 @@ module.exports = {
     const embed = new MessageEmbed()
       .setColor("#0099ff")
       .setTitle("Music Queue")
-      .addFields({
-        name: "Now Playing",
-        value: `[**${currentTrack.title}**](${currentTrack.url}) - ${currentTrack.requestedBy.tag}`,
-        inline: true,
-      })
       .setDescription(
-        `Now Playing \n
-        [**${currentTrack.title}**](${currentTrack.url}) - ${currentTrack.requestedBy.tag}
-        \n\n
+        `[**${currentTrack.title}**](${currentTrack.url}) - ${currentTrack.requestedBy.tag}
+        \n
         ${tracks.join("\n")}${
           queue.tracks.length > tracks.length &&
           `\n\n${
