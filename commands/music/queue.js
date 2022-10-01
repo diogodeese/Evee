@@ -23,7 +23,6 @@ module.exports = {
       .setTitle("Music Queue")
       .setDescription(
         `[**${currentTrack.title}**](${currentTrack.url}) - ${currentTrack.requestedBy.tag}
-        \n
         ${tracks.join("\n")}${
           queue.tracks.length > tracks.length &&
           `\n\n${
