@@ -22,7 +22,16 @@ module.exports = {
         ephemeral: true,
       });
     } else {
-      interaction.channel.bulkDelete(interaction.options.getInteger("integer"));
+      try {
+         interaction.channel.bulkDelete(interaction.options.getInteger("integer"));
+      } catch(e) {
+        console.log(e);
+        interaction.reply({
+          content: "You can only delete messages that are under 14 days old!",
+          ephemeral: true,
+        });
+      }
+     
 
       let msg = "";
 
