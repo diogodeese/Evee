@@ -30,7 +30,7 @@ module.exports = {
               ? `${queue.tracks.length - tracks.length} more track`
               : `${queue.tracks.length - tracks.length} more tracks`
           }`
-          :""
+          : ""
         }`
       )
       .setAuthor(
