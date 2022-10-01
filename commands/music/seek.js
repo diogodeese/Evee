@@ -13,8 +13,8 @@ module.exports = {
     if (!queue?.playing)
       return interaction.reply("There's no music being played");
 
-    queue.seek(interaction.options.getString("time"));
+    queue.seek(interaction.options.getInteger("time"));
 
-    interaction.reply(`Seek to ${interaction.options.getString("time")}!`);
+    interaction.reply(`Seek to ${interaction.options.getInteger("time")}!`);
   },
 };
