@@ -32,6 +32,7 @@ const createResponse = async (title) => {
 
     const embeds = substring(4096, data.lyrics).map((value, index) => {
       const isFirst = index === 0;
+      console.log(value)
 
       return new MessageEmbed({
         color: "#0099ff",
