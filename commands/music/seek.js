@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const player = require("../../client/player");
 const fluentFfmpeg = require("fluent-ffmpeg");
+const ytdl = require("ytdl-core");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -14,7 +15,9 @@ module.exports = {
     if (!queue?.playing)
       return interaction.reply("There's no music being played");
 
-    let editedSong = fluentFfmpeg({ source: queue.current })
+    let song = ytdl(queue.current.url, { quality: "highestaudio" });
+
+    let editedSong = fluentFfmpeg({ source: song })
       .toFormat("mp3")
       .setStartTime(interaction.options.getInteger("time"));
     queue.play(editedSong);
