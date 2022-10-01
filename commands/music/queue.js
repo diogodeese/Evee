@@ -27,7 +27,10 @@ module.exports = {
         inline: true,
       })
       .setDescription(
-        `${tracks.join("\n")}${
+        `Now Playing \n
+        [**${currentTrack.title}**](${currentTrack.url}) - ${currentTrack.requestedBy.tag}
+        \n\n
+        ${tracks.join("\n")}${
           queue.tracks.length > tracks.length &&
           `\n\n${
             queue.tracks.length - tracks.length === 1
