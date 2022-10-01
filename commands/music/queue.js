@@ -24,12 +24,13 @@ module.exports = {
       .setDescription(
         `[**${currentTrack.title}**](${currentTrack.url}) - ${currentTrack.requestedBy.tag}
         ${tracks.join("\n")}${
-          queue.tracks.length > tracks.length &&
+          queue.tracks.length > tracks.length ?
           `\n\n${
             queue.tracks.length - tracks.length === 1
               ? `${queue.tracks.length - tracks.length} more track`
               : `${queue.tracks.length - tracks.length} more tracks`
           }`
+          :""
         }`
       )
       .setAuthor(
@@ -37,6 +38,6 @@ module.exports = {
         "https://cdn.discordapp.com/avatars/775530325572976640/67386d9c99041abd20a890018ac2b497.png"
       );
 
-    return interaction.reply({ content: " ", embeds: [embed] });
+    return interaction.reply({ embeds: [embed] });
   },
 };
