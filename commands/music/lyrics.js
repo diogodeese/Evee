@@ -62,7 +62,7 @@ module.exports = {
     const title = interaction.options.getString("title");
     const sendLyrics = async (songTitle) => {
       try {
-        await createResponse(songTitle);
+        createResponse(songTitle);
       } catch (err) {
         return console.error({ err });
       }
