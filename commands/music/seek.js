@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const player = require("../../client/player");
+const fluentFfmpeg = require("fluent-ffmpeg");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -13,7 +14,10 @@ module.exports = {
     if (!queue?.playing)
       return interaction.reply("There's no music being played");
 
-    queue.seek(interaction.options.getInteger("time"));
+    let editedSong = fluentFfmpeg({ source: queue.current })
+      .toFormat("mp3")
+      .setStartTime(interaction.options.getInteger("time"));
+    queue.play(editedSong);
 
     interaction.reply(`Seek to ${interaction.options.getInteger("time")}!`);
   },
