@@ -32,7 +32,6 @@ const createResponse = async (title) => {
 
     const embeds = substring(4096, data.lyrics).map((value, index) => {
       const isFirst = index === 0;
-      console.log(value)
 
       return new MessageEmbed({
         color: "#0099ff",
@@ -42,7 +41,7 @@ const createResponse = async (title) => {
       });
     });
 
-    return { embeds };
+    interaction.reply({ embeds: [embeds] });
   } catch (error) {
     return "I am not able to find lyrics for this song.";
   }
@@ -63,8 +62,7 @@ module.exports = {
     const title = interaction.options.getString("title");
     const sendLyrics = async (songTitle) => {
       try {
-        const res = await createResponse(songTitle);
-        interaction.reply({ embeds: [res] });
+        await createResponse(songTitle);
       } catch (err) {
         return console.error({ err });
       }
