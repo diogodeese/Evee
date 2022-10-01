@@ -31,7 +31,7 @@
     "images-scraper": "^6.3.0",
     "mongoose": "^6.4.6",
     "nodemon": "^2.0.16",
-    "ytdl-core": "^4.11.0"
+    "ytdl-core": "^4.11.2"
   },
   "engines": {
     "npm": ">=6.0.0",

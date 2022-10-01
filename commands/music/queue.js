@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+const { MessageEmbed } = require("discord.js");
 const player = require("../../client/player");
 
 module.exports = {
@@ -26,7 +27,10 @@ module.exports = {
         inline: true,
       })
       .setDescription(
-        `${tracks.join("\n")}${
+        `Now Playing \n
+        [**${currentTrack.title}**](${currentTrack.url}) - ${currentTrack.requestedBy.tag}
+        \n\n
+        ${tracks.join("\n")}${
           queue.tracks.length > tracks.length &&
           `\n\n${
             queue.tracks.length - tracks.length === 1
@@ -40,6 +44,6 @@ module.exports = {
         "https://cdn.discordapp.com/avatars/775530325572976640/67386d9c99041abd20a890018ac2b497.png"
       );
 
-    return interaction.Reply({ content: "", embeds: [embed] });
+    return interaction.reply({ embeds: [embed], });
   },
 };
