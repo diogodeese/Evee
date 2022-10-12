@@ -1,27 +1,27 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { QueryType } = require("discord-player");
-const { MessageEmbed } = require("discord.js");
-const player = require("../../client/player");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { QueryType } = require('discord-player');
+const { MessageEmbed } = require('discord.js');
+const player = require('../../client/player');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("play")
-    .setDescription("Plays a requested song")
+    .setName('play')
+    .setDescription('Plays a requested song')
     .addStringOption((option) =>
       option
-        .setName("title")
-        .setDescription("Title of the song")
+        .setName('title')
+        .setDescription('Title of the song')
         .setRequired(true)
     ),
   async execute(interaction) {
-    const title = interaction.options.getString("title");
+    const title = interaction.options.getString('title');
 
     interaction.reply(
-      "Searching for: " + interaction.options.getString("title")
+      'Searching for: ' + interaction.options.getString('title')
     );
 
     if (!interaction.member.voice.channel)
-      return interaction.followUp("Please join a voice channel first!");
+      return interaction.followUp('Please join a voice channel first!');
 
     const searchResult = await player.search(title, {
       requestedBy: interaction.user,
@@ -42,21 +42,21 @@ module.exports = {
     const lastTrack = queue.tracks.length - 1;
 
     const embed = new MessageEmbed()
-      .setColor("#0099ff")
-      .setTitle("**" + queue.tracks[lastTrack].title + "**")
+      .setColor('#0099ff')
+      .setTitle('**' + queue.tracks[lastTrack].title + '**')
       .setURL(queue.tracks[lastTrack].url)
       .setAuthor(
-        "Evee",
-        "https://cdn.discordapp.com/avatars/775530325572976640/67386d9c99041abd20a890018ac2b497.png"
+        'Evee',
+        'https://cdn.discordapp.com/avatars/775530325572976640/67386d9c99041abd20a890018ac2b497.png'
       )
       .addFields(
         {
-          name: "Views",
+          name: 'Views',
           value: queue.tracks[lastTrack].views.toLocaleString(),
           inline: true,
         },
         {
-          name: "Duration",
+          name: 'Duration',
           value: queue.tracks[lastTrack].duration.toString(),
           inline: true,
         }
@@ -64,11 +64,11 @@ module.exports = {
       .setImage(queue.tracks[lastTrack].thumbnail)
       .setTimestamp()
       .setFooter(
-        "Queued by " + queue.tracks[lastTrack].requestedBy.tag,
+        'Queued by ' + queue.tracks[lastTrack].requestedBy.tag,
         queue.tracks[lastTrack].requestedBy.displayAvatarURL()
       );
 
-    interaction.editReply({ content: " ", embeds: [embed] });
+    interaction.editReply({ content: ' ', embeds: [embed] });
 
     if (!queue.playing) await queue.play();
   },
